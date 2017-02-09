@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+2 <html>
+3 <head>
+4 <!link rel="stylesheet" type="text/css" href="css/googlemapCSS.css">
+5 </head>
+6
+7 <body>
+8 <h1>My Map</h1>
+9 <div id="map_canvas"></div>
+10
+11 <!-- Let's put our JavaScript down here --------------------------------------------->
+12 <!-- Load the external JavaScript file with the map definition code -->
+13 <script src="js/googlemapJava.js"></script>
+14
+15 <!-- Load the API in asynchronous mode and execute the initialize
+16 function when done -->
+17 <script async defer
+18 src="https://maps.googleapis.com/maps/api/js?callback=initialize&key=<AIzaSyCVwWbZ5Yinsu9UdPOY8TOOflfPN33kASc>">
+19 </script>
+20 </body>
+21 </html>
