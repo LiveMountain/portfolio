@@ -2,7 +2,7 @@ function initialize() {
 var geoClassroom = new google.maps.LatLng(35.084280,-106.624073)
 
 var mapOptions = {
-zoom: 8,
+zoom: 15,
 center: geoClassroom,
 
 mapTypeId: google.maps.MapTypeId.ROADMAP};
