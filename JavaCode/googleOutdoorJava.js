@@ -1,5 +1,6 @@
 function initialize() {
 var geoCenter = new google.maps.LatLng(36.008108,-106.065021)
+
 var abiDam = new google.maps.LatLng(36.240461,-106428584)
 var eagleNest = new google.maps.LatLng(36.540583,-105.268217)
 var heronLAKE = new google.maps.LatLng(36.695736,-106.660659)
@@ -32,5 +33,5 @@ var chma = new google.maps.Marker({
 	position: chama,
 	title:"Town of Chama"
 	});
-	chma.setMap(map);
+chma.setMap(map);}
 
