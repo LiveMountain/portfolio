@@ -1,0 +1,23 @@
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="CSSStyleSheets/googleOutdoor.css">
+	</head>
+
+	<body>
+
+		<h1>My Favorite Activities in New Mexico</h1>
+		<div id="map_canvas"></div>
+		<div abiDAM="infoBox"></div>
+		<div eglNest="infoBox"></div>
+		<div hernLKE="infoBox"></div>
+		<div chma="infoBox"></div>
+
+
+		<script src="JavaCode/googleOutdoorJava.js"></script>
+
+		<script async defer
+		src="https://maps.googleapis.com/maps/api/js?callback=initialize&key=AIzaSyCVwWbZ5Yinsu9UdPOY8TOOflfPN33kASc">
+		</script>
+
+	</body>
+</html>
