@@ -1,4 +1,4 @@
-// OpenLayerMapJava.js
+// openlayerMapJava.js
 
 
 // define my layer groups that will be used to change the basemap for my map
