@@ -1,0 +1,32 @@
+<html>
+
+<head>
+	<link rel="stylesheet" href="CSSStyleSheets/openlayerMap.css" type="text/css">
+	<script src="https://openlayers.org/en/v4.0.1/build/ol.js" 
+		type="text/javascript"></script>
+</head>
+
+<body>
+	<h1>This is an OpenLayers map page of the Great Sand Dunes Nat'l Park in CO</h1>
+
+	<div id='map'><!-- This is where the map will be displayed --></div>
+	
+	<div id='map_selector'>
+		Select the basemap you would like to use
+		<ul>
+			<li onclick="setMapType('OSM')">Open Street Map</li>
+			<li onclick="setMapType('Bing_Roads')">Bing Map - Roads</li>
+			<li onclick="setMapType('Bing_Aerial')">Bing Map - Aerial Imagery</li>
+			<li onclick="setMapType('Bing_AerialWlabels')">Bing Map - Aerial Imagery with Labels</li>
+			<li onclick="setMapType('STAMEN_Watercolor')">Stamen Watercolor</li>
+			<li onclick="setMapType('STAMEN_Toner')">Stamen Toner</li>
+			<li onclick="setMapType('STAMEN_Terrain')">Stamen Terrain</li>
+		</ul>
+		
+	</div>
+
+<!-- import the external Javascript file with the map configuration code -->
+	<script src="JavaCode/openlayerMapJava.js" type="text/javascript"></script>
+</body>
+
+</html>
