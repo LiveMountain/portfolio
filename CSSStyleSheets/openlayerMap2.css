@@ -1,0 +1,31 @@
+/* OpenLayerMap.css */
+
+body {
+	width:100%;
+	background-color: grey;
+	height:100%
+ }
+
+#map,.map {
+	width:600px;
+	height:400px;
+ }
+
+#map_selector li {
+
+	cursor:pointer;
+	width:350px;
+}
+
+#map_selector li:hover {
+	background-color: black;
+ }
+
+
+
+#map div.ol-viewport
+	div.ol-overlaycontainer-stopevent
+	div.ol-overviewmap.ol-unselectable.ol-control.ol-uncollapsible {
+		top: 200px;
+		bottom: 300px;
+}
