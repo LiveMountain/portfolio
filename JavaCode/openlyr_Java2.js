@@ -1,31 +1,13 @@
 // openlayerMap2Java.js
 
 
-// define my layer groups that will be used to change the basemap for my map
-
-var projection = ol.proj.get('EPSG:2878');
-
-var Layer_Stamen_terrain = new ol.layer.Group({
-    layers: [
-        new ol.layer.Tile({
-            source: new ol.source.Stamen({layer: 'terrain'})
-        })
-    ]
-});
+// set a projection to recall throughout the map
 
 
-var Layer_Bing_aerial_labels = new ol.layer.Group({
-    layers: [
-		new ol.layer.Tile({
-			source: new ol.source.BingMaps({
-				key: 'AgQRwdWCKHZjOU-fQDBXp1sy8t3AJcjhvGeI4FCBMomdQ8wHBHnGsFdhZLD24cUR',
-				imagerySet: 'AerialWithLabels'
-			})
-		})
-    ]
-});
+//proj4.defs("EPSG:2878","+proj=lcc +lat_1=38.43333333333333 +lat_2=37.23333333333333 +lat_0=36.66666666666666 +lon_0=-105.5 +x_0=914401.8288036576 +y_0=304800.6096012192 +ellps=GRS80 +to_meter=0.3048006096012192 +no_defs"); 
 
-///////////////////////////////////////////////////////////////////////////////
+var projection = ol.proj.get('EPSG:3857');
+
 
 ///////////////////////////////////////////////////////////////////////////////
 
@@ -64,6 +46,26 @@ var highDuneFeature = new ol.Feature({
 	geometry: highDunePoint
 })
 
+
+///////////////////////////////////////////////////////////////////////////////
+// define layer objects
+
+var basemap_tiled = new ol.layer.Tile({
+	source: new ol.source.TileWMS({
+	url: 'https://basemap.nationalmap.gov/arcgis/services/USGSTopo/MapServer/WmsServer?',
+	  params: {
+		LAYERS: 0,
+		FORMAT: 'image/png',
+		TRANSPARENT: true
+	  },
+	  attributions: [
+	    new ol.Attribution({
+		  html: 'Data provided by the <a href="http://basemap.nationalmap.gov">National Map</a>.'
+		})
+	  ]
+	})
+})
+
 // layer based on custom geometries
 
 var local_geoms = new ol.layer.Vector({
@@ -71,32 +73,20 @@ var local_geoms = new ol.layer.Vector({
 		features: [pinonCampFeature,moscaCampFeature,sanLuisPrkFeature,sandDunesVisitFeature,highDuneFeature]
 	})
 })
-///////////////////////////////////////////////////////////////////////////////
 
 // create our base map object for which we will later set the corresponding layer groups for the desired basemap
+
 var myMap = new ol.Map({
 	target: 'map',
-	layers: [local_geoms],
+	layers: [basemap_tiled,local_geoms], //[local_geoms]
 	view: new ol.View({
-		center: ol.proj.fromLonLat([-105.594406,37.745438]),
-		zoom: 11
-		
+		center: ol.proj.fromLonLat([-105.594406,37.745438]), 
+		zoom:11,
+		projection: projection
 		})
 	});
 
 
 
-// define the function that sets the basemap type for the current map
-function setMapType(newType) {
-    if(newType == 'Bing_AerialWlabels') {
-        myMap.setLayerGroup(Layer_Bing_aerial_labels);
-    }    
-	 else if (newType == 'STAMEN_Terrain') {
-        myMap.setLayerGroup(Layer_Stamen_terrain);
-    } 
-     
-}
 ///////////////////////////////////////////////////////////////////////////////
 
-// Set the initial map basemap
-setMapType('Bing_AerialWlabels')
