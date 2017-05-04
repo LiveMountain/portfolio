@@ -73,7 +73,7 @@ var fill1 = new ol.style.Fill({color: 'red'});
 var fill2 = new ol.style.Fill({color: 'green'});
 var fill3 = new ol.style.Fill({color: 'blue'});
 var fill4 = new ol.style.Fill({color: 'yellow'});
-var fill5 = new ol.style.Fill({color: 'cyan'});
+var fill5 = new ol.style.Fill({color: [0,255,0]});
 
 // layer based on custom geometries
 
@@ -150,8 +150,8 @@ var highestDune = new ol.layer.Vector({
           image: new ol.style.RegularShape({
             fill: fill5,
             stroke: stroke,
-            points: 3,
-            radius: 10,
+            points: 25,
+            radius: 5,
             angle: Math.PI / 3
           })
         }),
