@@ -82,7 +82,7 @@ var local_feats = new ol.layer.Vector({
 
 var area_kml = new ol.layer.Vector({
 	source: new ol.source.Vector({
-		url: 'https://github.com/LiveMountain/portfolio/blob/master/CO_GISdata/GreatSandDunesArea_KML.kmz',
+		url: 'https://github.com/LiveMountain/portfolio/blob/master/GreatSandDunesArea_KML.kmz',
 		projection: projection,
 		format: new ol.format.KML()
 	})
