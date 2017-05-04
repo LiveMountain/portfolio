@@ -82,11 +82,14 @@ var local_feats = new ol.layer.Vector({
 
 var area_kml = new ol.layer.Vector({
 	source: new ol.source.Vector({
-		url: 'https://github.com/LiveMountain/portfolio/blob/master/GreatSandDunesArea_KML.kmz',
+		url: 'kml/GreatSandDunesArea_KML.kmz',
 		projection: projection,
-		format: new ol.format.KML()
+		format: new ol.format.KML({
+				extractStyles: true,
+		})
 	})
 })
+
 
 // create our base map object for which we will later set the corresponding layer groups for the desired basemap
 
