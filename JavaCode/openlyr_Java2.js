@@ -80,11 +80,19 @@ var local_feats = new ol.layer.Vector({
 	})
 })
 
+var area_kml = new ol.layer.Vector({
+	source: new ol.source.Vector({
+		url: 'https://github.com/LiveMountain/portfolio/blob/master/CO_GISdata/GreatSandDunesArea_KML.kmz',
+		projection: projection,
+		format: new ol.format.KML()
+	})
+})
+
 // create our base map object for which we will later set the corresponding layer groups for the desired basemap
 
 var myMap = new ol.Map({
 	target: 'map',
-	layers: [basemap_tiled,local_camp,local_feats], //[local_geoms]
+	layers: [basemap_tiled,local_camp,local_feats,area_kml], //[added layers]
 	view: new ol.View({
 		center: ol.proj.fromLonLat([-105.594406,37.745438]), 
 		zoom:11,
