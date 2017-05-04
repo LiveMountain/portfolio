@@ -66,23 +66,100 @@ var basemap_tiled = new ol.layer.Tile({
 	})
 })
 
+// Defining styles for vector styles
+
+var stroke = new ol.style.Stroke({color: 'black', width: 1});
+var fill1 = new ol.style.Fill({color: 'red'});
+var fill2 = new ol.style.Fill({color: 'green'});
+var fill3 = new ol.style.Fill({color: 'blue'});
+var fill4 = new ol.style.Fill({color: 'yellow'});
+var fill5 = new ol.style.Fill({color: 'cyan'});
+
 // layer based on custom geometries
 
-var local_camp = new ol.layer.Vector({
+//Pinon Campground
+var pinon_camp = new ol.layer.Vector({
 	source: new ol.source.Vector({
-		features: [pinonCampFeature,moscaCampFeature]
-	})
+		features: [pinonCampFeature]
+	}),
+	style: new ol.style.Style({
+          image: new ol.style.RegularShape({
+            fill: fill1,
+            stroke: stroke,
+            points: 4,
+            radius: 10,
+            angle: Math.PI / 2
+          })
+        }),
 })
 
-var local_feats = new ol.layer.Vector({
+//Mosca Campground
+var mosca_camp = new ol.layer.Vector({
 	source: new ol.source.Vector({
-		features: [sanLuisPrkFeature,sandDunesVisitFeature,highDuneFeature]
-	})
+		features: [moscaCampFeature]
+	}),
+	style: new ol.style.Style({
+          image: new ol.style.RegularShape({
+            fill: fill2,
+            stroke: stroke,
+            points: 4,
+            radius: 10,
+            angle: Math.PI / 2
+          })
+        }),
+})
+
+//San Luis Lake State Park
+var sanLuisParkArea = new ol.layer.Vector({
+	source: new ol.source.Vector({
+		features: [sanLuisPrkFeature]
+	}),
+	style: new ol.style.Style({
+          image: new ol.style.RegularShape({
+            fill: fill3,
+            stroke: stroke,
+            points: 3,
+            radius: 10,
+            
+          })
+        }),
+})
+
+//Great Sand Dunes Visitor Center
+var sandDunesVisitor = new ol.layer.Vector({
+	source: new ol.source.Vector({
+		features: [sandDunesVisitFeature]
+	}),
+	style: new ol.style.Style({
+          image: new ol.style.RegularShape({
+            fill: fill4,
+            stroke: stroke,
+            points: 5,
+            radius: 10,
+            
+          })
+        }),
+})
+
+//Highest Dune in the park
+var highestDune = new ol.layer.Vector({
+	source: new ol.source.Vector({
+		features: [highDuneFeature]
+	}),
+	style: new ol.style.Style({
+          image: new ol.style.RegularShape({
+            fill: fill5,
+            stroke: stroke,
+            points: 3,
+            radius: 10,
+            angle: Math.PI / 3
+          })
+        }),
 })
 
 var area_kml = new ol.layer.Vector({
 	source: new ol.source.Vector({
-		url: 'kml/GreatSandDunesArea_KML.kmz',
+		url: 'https://livemountain.github.io/portfolio/kml/GreatSandDunesArea_KML.kml',
 		projection: projection,
 		format: new ol.format.KML({
 				extractStyles: true,
@@ -95,7 +172,7 @@ var area_kml = new ol.layer.Vector({
 
 var myMap = new ol.Map({
 	target: 'map',
-	layers: [basemap_tiled,local_camp,local_feats,area_kml], //[added layers]
+	layers: [basemap_tiled,pinon_camp,mosca_camp,sanLuisParkArea,sandDunesVisitor,highestDune,area_kml], //[added layers]
 	view: new ol.View({
 		center: ol.proj.fromLonLat([-105.594406,37.745438]), 
 		zoom:11,
