@@ -68,9 +68,15 @@ var basemap_tiled = new ol.layer.Tile({
 
 // layer based on custom geometries
 
-var local_geoms = new ol.layer.Vector({
+var local_camp = new ol.layer.Vector({
 	source: new ol.source.Vector({
-		features: [pinonCampFeature,moscaCampFeature,sanLuisPrkFeature,sandDunesVisitFeature,highDuneFeature]
+		features: [pinonCampFeature,moscaCampFeature]
+	})
+})
+
+var local_feats = new ol.layer.Vector({
+	source: new ol.source.Vector({
+		features: [sanLuisPrkFeature,sandDunesVisitFeature,highDuneFeature]
 	})
 })
 
@@ -78,7 +84,7 @@ var local_geoms = new ol.layer.Vector({
 
 var myMap = new ol.Map({
 	target: 'map',
-	layers: [basemap_tiled,local_geoms], //[local_geoms]
+	layers: [basemap_tiled,local_camp,local_feats], //[local_geoms]
 	view: new ol.View({
 		center: ol.proj.fromLonLat([-105.594406,37.745438]), 
 		zoom:11,
