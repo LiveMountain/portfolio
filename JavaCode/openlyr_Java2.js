@@ -157,9 +157,19 @@ var highestDune = new ol.layer.Vector({
         }),
 })
 
-var area_kml = new ol.layer.Vector({
+var dune_area_kml = new ol.layer.Vector({
 	source: new ol.source.Vector({
 		url: 'https://livemountain.github.io/portfolio/kml/GreatSandDunesArea_KML.kml',
+		projection: projection,
+		format: new ol.format.KML({
+				extractStyles: true,
+		})
+	})
+})
+
+var lake_area_kml = new ol.layer.Vector({
+	source: new ol.source.Vector({
+		url: 'https://livemountain.github.io/portfolio/kml/SanLuis_Lake.kml',
 		projection: projection,
 		format: new ol.format.KML({
 				extractStyles: true,
@@ -172,7 +182,7 @@ var area_kml = new ol.layer.Vector({
 
 var myMap = new ol.Map({
 	target: 'map',
-	layers: [basemap_tiled,pinon_camp,mosca_camp,sanLuisParkArea,sandDunesVisitor,highestDune,area_kml], //[added layers]
+	layers: [basemap_tiled,pinon_camp,mosca_camp,sanLuisParkArea,sandDunesVisitor,highestDune,dune_area_kml,lake_area_kml], //[added layers]
 	view: new ol.View({
 		center: ol.proj.fromLonLat([-105.594406,37.745438]), 
 		zoom:11,
