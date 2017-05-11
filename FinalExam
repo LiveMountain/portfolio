@@ -1,0 +1,25 @@
+<html>
+
+<head>
+	<link rel="stylesheet" href="CSSStyleSheets/openlayerMap2.css" type="text/css">
+	<script src="https://openlayers.org/en/v4.0.1/build/ol.js" 
+		type="text/javascript"></script>
+</head>
+
+<body>
+	<h1>My OpenLayers map of the Great Sand Dunes Nat'l Park in CO</h1>
+
+	<div id='map' ><!-- This is where the map will be displayed class='map'--></div>
+	<h2>Legend</h2>
+	<p>Pinon Campground: Red diamond on map</p>
+	<p>Mosca Campground: Green diamond on map</p>
+	<p>San Luis Lake State Park: Blue triangle on map</p>
+	<p>Great Sand Dunes Visitor Center: Yellow pentagon on map</p>
+	<p>Highest Dune in the Great Sand Dunes Nat'l Park: Light green circle on map</p>
+
+<!-- import the external Javascript file with the map configuration code -->
+	<script src="JavaCode/openlyr_Java2.js" type="text/javascript"></script>
+	
+</body>
+
+</html>
